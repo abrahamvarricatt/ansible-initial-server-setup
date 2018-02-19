@@ -1,0 +1,9 @@
+---
+  - hosts: all
+  
+    vars_files:
+      - group_vars/all.yml
+  
+    roles:
+      - ansible-user-account
+      - change-root-password

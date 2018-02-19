@@ -1,0 +1,2 @@
+roles/ansible-user-account/files/ansible.pem
+roles/ansible-user-account/files/ansible.pub

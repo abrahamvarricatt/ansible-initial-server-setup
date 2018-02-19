@@ -1,0 +1,29 @@
+---
+
+  - name: Create user - ansible
+    user:
+      name: ansible
+      shell: /bin/bash
+  
+  - name: Create .ssh folder
+    file:
+      path: /home/ansible/.ssh
+      state: directory
+      owner: ansible
+      group: ansible
+      mode: 0700
+  
+  - name: Set authorized SSH public key
+    authorized_key:
+      user: ansible
+      state: present
+      exclusive: true
+      key: "{{ lookup('file', 'ansible.pub') }}"
+  
+  - name: Allow 'ansible' group to have passwordless sudo
+    lineinfile:
+      dest: /etc/sudoers
+      state: present
+      regexp: '^%ansible'
+      line: '%ansible ALL=(ALL) NOPASSWD: ALL'
+      validate: 'visudo -cf %s'
