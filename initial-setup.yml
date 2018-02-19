@@ -6,4 +6,4 @@
   
     roles:
       - ansible-user-account
-      - change-root-password
+      - secure-root-ssh

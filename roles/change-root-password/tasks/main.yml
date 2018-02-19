@@ -1,7 +1,0 @@
----
-
-  - name: Change password for root user
-    user:
-      name: "{{ ansible_user }}"
-      password: "{{ new_password | password_hash('sha512') }}"
-      update_password: always

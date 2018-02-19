@@ -40,5 +40,5 @@ $ mv ansible ansible.pem
 Update `inventory.ini` with server details. Then you can run the following,
 
 ```shell
-$ ansible-playbook -i inventory.ini initial-setup.yml --extra-vars "new_password=abcd"
+$ ansible-playbook -i inventory.ini initial-setup.yml
 ```
